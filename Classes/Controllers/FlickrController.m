@@ -15,6 +15,11 @@
 #import "AsyncTableAppDelegate.h"
 #import "Reachability.h"
 
+@interface FlickrController (Private)
+- (void)loadContentForVisibleCells;
+@end
+
+
 @implementation FlickrController
 
 @synthesize navigationController;
@@ -93,6 +98,7 @@
     [flickrItems release];
     flickrItems = [items retain];
     [self.tableView reloadData];
+    [self loadContentForVisibleCells]; 
     [[AsyncTableAppDelegate sharedAppDelegate] hideLoadingView];
 }
 
@@ -113,6 +119,45 @@
     controller.title = item.title;
     [self.navigationController pushViewController:controller animated:YES];
     [controller release];    
+}
+
+#pragma mark -
+#pragma mark UIScrollViewDelegate methods
+
+// These methods are adapted from
+// http://idevkit.com/forums/tutorials-code-samples-sdk/2-dynamic-content-loading-uitableview.html
+
+- (void)loadContentForVisibleCells
+{
+    NSArray *cells = [self.tableView visibleCells];
+    [cells retain];
+    for (int i = 0; i < [cells count]; i++) 
+    { 
+        // Go through each cell in the array and call its loadContent method if it responds to it.
+        FlickrCell *flickrCell = (FlickrCell *)[[cells objectAtIndex: i] retain];
+        [flickrCell loadImage];
+        [flickrCell release];
+        flickrCell = nil;
+    }
+    [cells release];
+}
+
+
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView; 
+{
+    // Method is called when the decelerating comes to a stop.
+    // Pass visible cells to the cell loading function. If possible change 
+    // scrollView to a pointer to your table cell to avoid compiler warnings
+    [self loadContentForVisibleCells]; 
+}
+
+
+- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate;
+{
+    if (!decelerate) 
+    {
+        [self loadContentForVisibleCells]; 
+    }
 }
 
 #pragma mark -
@@ -143,11 +188,11 @@
     return cell;
 }
 
-- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    FlickrCell *flickrCell = (FlickrCell *)cell;
-    [flickrCell loadImage];
-}
+//- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
+//{
+//    FlickrCell *flickrCell = (FlickrCell *)cell;
+//    [flickrCell loadImage];
+//}
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath 
 {

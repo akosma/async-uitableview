@@ -42,6 +42,19 @@
 }
 
 #pragma mark -
+#pragma mark Public methods
+
+- (BOOL)hasLoadedImage
+{
+    return (image != nil);
+}
+
+- (BOOL)hasLoadedThumbnail
+{
+    return (thumbnail != nil);
+}
+
+#pragma mark -
 #pragma mark Overridden setters
 
 - (UIImage *)image

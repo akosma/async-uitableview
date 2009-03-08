@@ -39,4 +39,7 @@
 @property (nonatomic, retain) UIImage *thumbnail;
 @property (nonatomic, assign) NSObject<FlickrItemDelegate> *delegate;
 
+- (BOOL)hasLoadedImage;
+- (BOOL)hasLoadedThumbnail;
+
 @end

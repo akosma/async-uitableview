@@ -71,7 +71,18 @@
         if (item != nil)
         {
             textLabel.text = item.title;
-            photo.image = item.thumbnail;
+            
+            // This is to avoid the item loading the image
+            // when this setter is called; we only want that
+            // to happen depending on the scrolling of the table
+            if ([item hasLoadedThumbnail])
+            {
+                photo.image = item.thumbnail;
+            }
+            else
+            {
+                photo.image = nil;
+            }
         }
     }
 }

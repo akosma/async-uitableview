@@ -20,6 +20,7 @@
 
 - (void)dealloc 
 {
+    [controller release];
     [downloadQueue release];
     [super dealloc];
 }
