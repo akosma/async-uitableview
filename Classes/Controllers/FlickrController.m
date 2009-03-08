@@ -25,7 +25,6 @@
     {
         navigationController = [[UINavigationController alloc] initWithRootViewController:self];
         self.title = @"Flickr RSS Feed";
-        self.tableView.rowHeight = 76.0;
         rss = [[RSS alloc] init];
         rss.delegate = self;
         NSURL *url = [[NSURL alloc] initWithString:NEWS_FEED_URL];
@@ -111,6 +110,7 @@
     FlickrItem *item = [flickrItems objectAtIndex:indexPath.row];
     FlickrItemController *controller = [[FlickrItemController alloc] init];
     controller.item = item;
+    controller.title = item.title;
     [self.navigationController pushViewController:controller animated:YES];
     [controller release];    
 }
@@ -170,6 +170,8 @@
 
 - (void)viewWillAppear:(BOOL)animated 
 {
+    self.tableView.rowHeight = 76.0;
+
     // Unselect the selected row if any
     // http://forums.macrumors.com/showthread.php?t=577677
     NSIndexPath* selection = [self.tableView indexPathForSelectedRow];
