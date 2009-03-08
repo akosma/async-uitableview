@@ -54,16 +54,19 @@
     self.image = remoteImage;
     [remoteImage release];
 
-    if ([delegate respondsToSelector:@selector(newsItem:didLoadImage:)])
+    if ([delegate respondsToSelector:@selector(flickrItem:didLoadImage:)])
     {
-        [delegate newsItem:self didLoadImage:self.image];
+        [delegate flickrItem:self didLoadImage:self.image];
     }
 }
 
 - (void)requestWentWrong:(ASIHTTPRequest *)request
 {
-    // NSError *error = [request error];
-    // and then do something...
+    NSError *error = [request error];
+    if ([delegate respondsToSelector:@selector(flickrItem:couldNotLoadImageError:)])
+    {
+        [delegate flickrItem:self couldNotLoadImageError:error];
+    }
 }
 
 @end

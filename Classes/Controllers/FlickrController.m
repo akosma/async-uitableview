@@ -24,7 +24,7 @@
     {
         navigationController = [[UINavigationController alloc] initWithRootViewController:self];
         self.title = @"Flickr RSS Feed";
-        self.tableView.rowHeight = 75.0;
+        self.tableView.rowHeight = 76.0;
         rss = [[RSS alloc] init];
         rss.delegate = self;
         NSURL *url = [[NSURL alloc] initWithString:NEWS_FEED_URL];
@@ -43,7 +43,7 @@
 - (void)dealloc 
 {
     [navigationController release];
-    [newsItems release];
+    [flickrItems release];
     [rss release];
     [super dealloc];
 }
@@ -89,8 +89,8 @@
 
 - (void)feed:(RSS *)feed didFindItems:(NSArray *)items
 {
-    [newsItems release];
-    newsItems = [items retain];
+    [flickrItems release];
+    flickrItems = [items retain];
     [self.tableView reloadData];
     [[AsyncTableAppDelegate sharedAppDelegate] hideLoadingView];
 }
@@ -110,12 +110,12 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section 
 {
-    return [newsItems count];
+    return [flickrItems count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath 
 {
-    FlickrItem *item = [newsItems objectAtIndex:indexPath.row];
+    FlickrItem *item = [flickrItems objectAtIndex:indexPath.row];
     static NSString *identifier = @"FlickrItemCell";
     FlickrCell *cell = (FlickrCell *)[tableView dequeueReusableCellWithIdentifier:identifier];
     if (cell == nil) 
@@ -129,8 +129,8 @@
 
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    FlickrCell *newsCell = (FlickrCell *)cell;
-    [newsCell loadImage];
+    FlickrCell *flickrCell = (FlickrCell *)cell;
+    [flickrCell loadImage];
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath 

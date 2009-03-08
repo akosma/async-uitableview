@@ -11,6 +11,7 @@
 @protocol FlickrItemDelegate
 
 @required
-- (void)newsItem:(FlickrItem *)item didLoadImage:(UIImage *)image;
+- (void)flickrItem:(FlickrItem *)item didLoadImage:(UIImage *)image;
+- (void)flickrItem:(FlickrItem *)item couldNotLoadImageError:(NSError *)error;
 
 @end

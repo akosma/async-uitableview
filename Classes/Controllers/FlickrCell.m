@@ -22,9 +22,7 @@
     {
         self.backgroundColor = [UIColor blackColor];
         
-        CGRect contentRect = CGRectMake(80.0, 0.0, 290.0, 75.0);
-
-        textLabel = [[UILabel alloc] initWithFrame:contentRect];
+        textLabel = [[UILabel alloc] initWithFrame:CGRectMake(80.0, 5.0, 290.0, 70.0)];
         textLabel.font = [UIFont fontWithName:@"Helvetica-Bold" size:18.0];
         textLabel.contentMode = UIViewContentModeScaleToFill;
         [self.contentView addSubview:textLabel];
@@ -115,9 +113,15 @@
 #pragma mark -
 #pragma mark FlickrItemDelegate methods
 
-- (void)newsItem:(FlickrItem *)item didLoadImage:(UIImage *)image
+- (void)flickrItem:(FlickrItem *)item didLoadImage:(UIImage *)image
 {
     photo.image = image;
+    [scrollingWheel stopAnimating];
+}
+
+- (void)flickrItem:(FlickrItem *)item couldNotLoadImageError:(NSError *)error
+{
+    // Here we could show a "default" or "placeholder" image...
     [scrollingWheel stopAnimating];
 }
 

@@ -15,7 +15,7 @@
 {
 @private
     RSS *rss;
-    NSArray *newsItems;
+    NSArray *flickrItems;
     UINavigationController *navigationController;
 }
 
