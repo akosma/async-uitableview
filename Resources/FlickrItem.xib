@@ -49,13 +49,13 @@
 					<object class="IBUIActivityIndicatorView" id="881546453">
 						<reference key="NSNextResponder" ref="191373211"/>
 						<int key="NSvFlags">301</int>
-						<string key="NSFrame">{{142, 189}, {37, 37}}</string>
+						<string key="NSFrame">{{151, 197}, {20, 20}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<bool key="IBUIOpaque">NO</bool>
 						<bool key="IBUIClearsContextBeforeDrawing">NO</bool>
 						<bool key="IBUIUserInteractionEnabled">NO</bool>
 						<bool key="IBUIAnimating">YES</bool>
-						<int key="IBUIStyle">0</int>
+						<int key="IBUIStyle">2</int>
 					</object>
 					<object class="IBUIButton" id="41803912">
 						<reference key="NSNextResponder" ref="191373211"/>
