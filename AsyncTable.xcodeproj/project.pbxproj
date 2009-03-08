@@ -1,0 +1,372 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 45;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1D60589B0D05DD56006BFB54 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; };
+		1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
+		1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
+		288765A50DF7441C002DB57D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765A40DF7441C002DB57D /* CoreGraphics.framework */; };
+		28AD733F0D9D9553002E5188 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28AD733E0D9D9553002E5188 /* MainWindow.xib */; };
+		3A18BE2F0F643D0C007D5CB9 /* AsyncTableAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A18BE1D0F643D0C007D5CB9 /* AsyncTableAppDelegate.m */; };
+		3A18BE310F643D0C007D5CB9 /* FlickrCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A18BE220F643D0C007D5CB9 /* FlickrCell.m */; };
+		3A18BE320F643D0C007D5CB9 /* FlickrController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A18BE240F643D0C007D5CB9 /* FlickrController.m */; };
+		3A18BE340F643D0C007D5CB9 /* RSS.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A18BE290F643D0C007D5CB9 /* RSS.m */; };
+		3A18BE350F643D0C007D5CB9 /* FlickrItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A18BE2D0F643D0C007D5CB9 /* FlickrItem.m */; };
+		3A18BE400F643D3C007D5CB9 /* ASIFormDataRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A18BE390F643D3C007D5CB9 /* ASIFormDataRequest.m */; };
+		3A18BE410F643D3C007D5CB9 /* ASIHTTPRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A18BE3B0F643D3C007D5CB9 /* ASIHTTPRequest.m */; };
+		3A18BE420F643D3C007D5CB9 /* ASINetworkQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A18BE3D0F643D3C007D5CB9 /* ASINetworkQueue.m */; };
+		3A18BE430F643D3C007D5CB9 /* NSHTTPCookieAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A18BE3F0F643D3C007D5CB9 /* NSHTTPCookieAdditions.m */; };
+		3A18BE680F64401E007D5CB9 /* akosma.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A18BE670F64401E007D5CB9 /* akosma.png */; };
+		3A18BE7B0F644130007D5CB9 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A18BE7A0F644130007D5CB9 /* Reachability.m */; };
+		3A18BE8E0F644258007D5CB9 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A18BE8D0F644258007D5CB9 /* SystemConfiguration.framework */; };
+		3A18BE900F644263007D5CB9 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A18BE8F0F644263007D5CB9 /* CFNetwork.framework */; };
+		3A18BE930F64427C007D5CB9 /* libz.1.2.3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A18BE920F64427C007D5CB9 /* libz.1.2.3.dylib */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		1D30AB110D05D00D00671497 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		1D6058910D05DD3D006BFB54 /* AsyncTable.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AsyncTable.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		1DF5F4DF0D08C38300B7A737 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		288765A40DF7441C002DB57D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		28AD733E0D9D9553002E5188 /* MainWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainWindow.xib; sourceTree = "<group>"; };
+		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		32CA4F630368D1EE00C91783 /* AsyncTable_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AsyncTable_Prefix.pch; sourceTree = "<group>"; };
+		3A18BE1C0F643D0C007D5CB9 /* AsyncTableAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AsyncTableAppDelegate.h; sourceTree = "<group>"; };
+		3A18BE1D0F643D0C007D5CB9 /* AsyncTableAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AsyncTableAppDelegate.m; sourceTree = "<group>"; };
+		3A18BE210F643D0C007D5CB9 /* FlickrCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlickrCell.h; sourceTree = "<group>"; };
+		3A18BE220F643D0C007D5CB9 /* FlickrCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlickrCell.m; sourceTree = "<group>"; };
+		3A18BE230F643D0C007D5CB9 /* FlickrController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlickrController.h; sourceTree = "<group>"; };
+		3A18BE240F643D0C007D5CB9 /* FlickrController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlickrController.m; sourceTree = "<group>"; };
+		3A18BE280F643D0C007D5CB9 /* RSS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSS.h; sourceTree = "<group>"; };
+		3A18BE290F643D0C007D5CB9 /* RSS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSS.m; sourceTree = "<group>"; };
+		3A18BE2A0F643D0C007D5CB9 /* RSSDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSSDelegate.h; sourceTree = "<group>"; };
+		3A18BE2C0F643D0C007D5CB9 /* FlickrItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlickrItem.h; sourceTree = "<group>"; };
+		3A18BE2D0F643D0C007D5CB9 /* FlickrItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlickrItem.m; sourceTree = "<group>"; };
+		3A18BE2E0F643D0C007D5CB9 /* FlickrItemDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlickrItemDelegate.h; sourceTree = "<group>"; };
+		3A18BE380F643D3C007D5CB9 /* ASIFormDataRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASIFormDataRequest.h; sourceTree = "<group>"; };
+		3A18BE390F643D3C007D5CB9 /* ASIFormDataRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASIFormDataRequest.m; sourceTree = "<group>"; };
+		3A18BE3A0F643D3C007D5CB9 /* ASIHTTPRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASIHTTPRequest.h; sourceTree = "<group>"; };
+		3A18BE3B0F643D3C007D5CB9 /* ASIHTTPRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASIHTTPRequest.m; sourceTree = "<group>"; };
+		3A18BE3C0F643D3C007D5CB9 /* ASINetworkQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASINetworkQueue.h; sourceTree = "<group>"; };
+		3A18BE3D0F643D3C007D5CB9 /* ASINetworkQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASINetworkQueue.m; sourceTree = "<group>"; };
+		3A18BE3E0F643D3C007D5CB9 /* NSHTTPCookieAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSHTTPCookieAdditions.h; sourceTree = "<group>"; };
+		3A18BE3F0F643D3C007D5CB9 /* NSHTTPCookieAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSHTTPCookieAdditions.m; sourceTree = "<group>"; };
+		3A18BE670F64401E007D5CB9 /* akosma.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = akosma.png; sourceTree = "<group>"; };
+		3A18BE6C0F644076007D5CB9 /* Definitions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Definitions.h; sourceTree = "<group>"; };
+		3A18BE790F644130007D5CB9 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
+		3A18BE7A0F644130007D5CB9 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
+		3A18BE8D0F644258007D5CB9 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		3A18BE8F0F644263007D5CB9 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		3A18BE920F64427C007D5CB9 /* libz.1.2.3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.1.2.3.dylib; path = usr/lib/libz.1.2.3.dylib; sourceTree = SDKROOT; };
+		8D1107310486CEB800E47090 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		1D60588F0D05DD3D006BFB54 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */,
+				1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */,
+				288765A50DF7441C002DB57D /* CoreGraphics.framework in Frameworks */,
+				3A18BE8E0F644258007D5CB9 /* SystemConfiguration.framework in Frameworks */,
+				3A18BE900F644263007D5CB9 /* CFNetwork.framework in Frameworks */,
+				3A18BE930F64427C007D5CB9 /* libz.1.2.3.dylib in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		19C28FACFE9D520D11CA2CBB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				1D6058910D05DD3D006BFB54 /* AsyncTable.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
+			isa = PBXGroup;
+			children = (
+				3A18BE1A0F643D0C007D5CB9 /* Classes */,
+				3A18BE360F643D3C007D5CB9 /* Externals */,
+				29B97315FDCFA39411CA2CEA /* Other Sources */,
+				29B97317FDCFA39411CA2CEA /* Resources */,
+				29B97323FDCFA39411CA2CEA /* Frameworks */,
+				19C28FACFE9D520D11CA2CBB /* Products */,
+			);
+			name = CustomTemplate;
+			sourceTree = "<group>";
+		};
+		29B97315FDCFA39411CA2CEA /* Other Sources */ = {
+			isa = PBXGroup;
+			children = (
+				3A18BE6C0F644076007D5CB9 /* Definitions.h */,
+				32CA4F630368D1EE00C91783 /* AsyncTable_Prefix.pch */,
+				29B97316FDCFA39411CA2CEA /* main.m */,
+			);
+			name = "Other Sources";
+			sourceTree = "<group>";
+		};
+		29B97317FDCFA39411CA2CEA /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				3A18BE670F64401E007D5CB9 /* akosma.png */,
+				28AD733E0D9D9553002E5188 /* MainWindow.xib */,
+				8D1107310486CEB800E47090 /* Info.plist */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3A18BE920F64427C007D5CB9 /* libz.1.2.3.dylib */,
+				3A18BE8F0F644263007D5CB9 /* CFNetwork.framework */,
+				3A18BE8D0F644258007D5CB9 /* SystemConfiguration.framework */,
+				1DF5F4DF0D08C38300B7A737 /* UIKit.framework */,
+				1D30AB110D05D00D00671497 /* Foundation.framework */,
+				288765A40DF7441C002DB57D /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		3A18BE1A0F643D0C007D5CB9 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				3A18BE1B0F643D0C007D5CB9 /* AppDelegate */,
+				3A18BE1E0F643D0C007D5CB9 /* Controllers */,
+				3A18BE270F643D0C007D5CB9 /* Helpers */,
+				3A18BE2B0F643D0C007D5CB9 /* Models */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		3A18BE1B0F643D0C007D5CB9 /* AppDelegate */ = {
+			isa = PBXGroup;
+			children = (
+				3A18BE1C0F643D0C007D5CB9 /* AsyncTableAppDelegate.h */,
+				3A18BE1D0F643D0C007D5CB9 /* AsyncTableAppDelegate.m */,
+			);
+			path = AppDelegate;
+			sourceTree = "<group>";
+		};
+		3A18BE1E0F643D0C007D5CB9 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				3A18BE210F643D0C007D5CB9 /* FlickrCell.h */,
+				3A18BE220F643D0C007D5CB9 /* FlickrCell.m */,
+				3A18BE230F643D0C007D5CB9 /* FlickrController.h */,
+				3A18BE240F643D0C007D5CB9 /* FlickrController.m */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		3A18BE270F643D0C007D5CB9 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				3A18BE280F643D0C007D5CB9 /* RSS.h */,
+				3A18BE290F643D0C007D5CB9 /* RSS.m */,
+				3A18BE2A0F643D0C007D5CB9 /* RSSDelegate.h */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		3A18BE2B0F643D0C007D5CB9 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				3A18BE2C0F643D0C007D5CB9 /* FlickrItem.h */,
+				3A18BE2D0F643D0C007D5CB9 /* FlickrItem.m */,
+				3A18BE2E0F643D0C007D5CB9 /* FlickrItemDelegate.h */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		3A18BE360F643D3C007D5CB9 /* Externals */ = {
+			isa = PBXGroup;
+			children = (
+				3A18BE780F644130007D5CB9 /* Reachability */,
+				3A18BE370F643D3C007D5CB9 /* ASIHTTPRequest */,
+			);
+			path = Externals;
+			sourceTree = "<group>";
+		};
+		3A18BE370F643D3C007D5CB9 /* ASIHTTPRequest */ = {
+			isa = PBXGroup;
+			children = (
+				3A18BE380F643D3C007D5CB9 /* ASIFormDataRequest.h */,
+				3A18BE390F643D3C007D5CB9 /* ASIFormDataRequest.m */,
+				3A18BE3A0F643D3C007D5CB9 /* ASIHTTPRequest.h */,
+				3A18BE3B0F643D3C007D5CB9 /* ASIHTTPRequest.m */,
+				3A18BE3C0F643D3C007D5CB9 /* ASINetworkQueue.h */,
+				3A18BE3D0F643D3C007D5CB9 /* ASINetworkQueue.m */,
+				3A18BE3E0F643D3C007D5CB9 /* NSHTTPCookieAdditions.h */,
+				3A18BE3F0F643D3C007D5CB9 /* NSHTTPCookieAdditions.m */,
+			);
+			path = ASIHTTPRequest;
+			sourceTree = "<group>";
+		};
+		3A18BE780F644130007D5CB9 /* Reachability */ = {
+			isa = PBXGroup;
+			children = (
+				3A18BE790F644130007D5CB9 /* Reachability.h */,
+				3A18BE7A0F644130007D5CB9 /* Reachability.m */,
+			);
+			path = Reachability;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		1D6058900D05DD3D006BFB54 /* AsyncTable */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1D6058960D05DD3E006BFB54 /* Build configuration list for PBXNativeTarget "AsyncTable" */;
+			buildPhases = (
+				1D60588D0D05DD3D006BFB54 /* Resources */,
+				1D60588E0D05DD3D006BFB54 /* Sources */,
+				1D60588F0D05DD3D006BFB54 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = AsyncTable;
+			productName = AsyncTable;
+			productReference = 1D6058910D05DD3D006BFB54 /* AsyncTable.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		29B97313FDCFA39411CA2CEA /* Project object */ = {
+			isa = PBXProject;
+			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "AsyncTable" */;
+			compatibilityVersion = "Xcode 3.1";
+			hasScannedForEncodings = 1;
+			mainGroup = 29B97314FDCFA39411CA2CEA /* CustomTemplate */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				1D6058900D05DD3D006BFB54 /* AsyncTable */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		1D60588D0D05DD3D006BFB54 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				28AD733F0D9D9553002E5188 /* MainWindow.xib in Resources */,
+				3A18BE680F64401E007D5CB9 /* akosma.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		1D60588E0D05DD3D006BFB54 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1D60589B0D05DD56006BFB54 /* main.m in Sources */,
+				3A18BE2F0F643D0C007D5CB9 /* AsyncTableAppDelegate.m in Sources */,
+				3A18BE310F643D0C007D5CB9 /* FlickrCell.m in Sources */,
+				3A18BE320F643D0C007D5CB9 /* FlickrController.m in Sources */,
+				3A18BE340F643D0C007D5CB9 /* RSS.m in Sources */,
+				3A18BE350F643D0C007D5CB9 /* FlickrItem.m in Sources */,
+				3A18BE400F643D3C007D5CB9 /* ASIFormDataRequest.m in Sources */,
+				3A18BE410F643D3C007D5CB9 /* ASIHTTPRequest.m in Sources */,
+				3A18BE420F643D3C007D5CB9 /* ASINetworkQueue.m in Sources */,
+				3A18BE430F643D3C007D5CB9 /* NSHTTPCookieAdditions.m in Sources */,
+				3A18BE7B0F644130007D5CB9 /* Reachability.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		1D6058940D05DD3E006BFB54 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = AsyncTable_Prefix.pch;
+				INFOPLIST_FILE = Info.plist;
+				PRODUCT_NAME = AsyncTable;
+			};
+			name = Debug;
+		};
+		1D6058950D05DD3E006BFB54 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = AsyncTable_Prefix.pch;
+				INFOPLIST_FILE = Info.plist;
+				PRODUCT_NAME = AsyncTable;
+			};
+			name = Release;
+		};
+		C01FCF4F08A954540054247B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PREBINDING = NO;
+				SDKROOT = iphoneos2.2.1;
+			};
+			name = Debug;
+		};
+		C01FCF5008A954540054247B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				PREBINDING = NO;
+				SDKROOT = iphoneos2.2.1;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1D6058960D05DD3E006BFB54 /* Build configuration list for PBXNativeTarget "AsyncTable" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1D6058940D05DD3E006BFB54 /* Debug */,
+				1D6058950D05DD3E006BFB54 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C01FCF4E08A954540054247B /* Build configuration list for PBXProject "AsyncTable" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C01FCF4F08A954540054247B /* Debug */,
+				C01FCF5008A954540054247B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 29B97313FDCFA39411CA2CEA /* Project object */;
+}
