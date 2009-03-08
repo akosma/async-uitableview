@@ -15,7 +15,7 @@
 {
 @private
     IBOutlet UIImageView *photoView;
-    IBOutlet UIActivityIndicatorView *scrollingWheel;
+    IBOutlet UIProgressView *progressView;
     IBOutlet UIButton *saveButton;
     FlickrItem *item;
 }

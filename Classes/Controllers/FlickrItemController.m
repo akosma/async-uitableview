@@ -8,6 +8,7 @@
 
 #import "FlickrItemController.h"
 #import "FlickrItem.h"
+#import "ASIHTTPRequest.h"
 
 @implementation FlickrItemController
 
@@ -48,16 +49,6 @@
             item.delegate = self;
             saveButton.enabled = NO;
             saveButton.alpha = 0.5;
-            
-            // The getter in the FlickrItem class is overloaded...!
-            // If the image is not yet downloaded, it returns nil and 
-            // begins the asynchronous downloading of the image.
-            UIImage *image = item.image;
-            if (image == nil)
-            {
-                [scrollingWheel startAnimating];
-            }
-            photoView.image = image;            
         }
     }
 }
@@ -92,16 +83,45 @@
     photoView.image = image;
     saveButton.enabled = YES;
     saveButton.alpha = 1.0;
-    [scrollingWheel stopAnimating];
 }
 
 - (void)flickrItem:(FlickrItem *)item couldNotLoadImageError:(NSError *)error
 {
-    [scrollingWheel stopAnimating];
+}
+
+#pragma mark -
+#pragma mark ASIHTTPRequest delegate methods
+
+- (void)requestDone:(ASIHTTPRequest *)request
+{
+    NSData *data = [request responseData];
+    UIImage *remoteImage = [[UIImage alloc] initWithData:data];
+    photoView.image = remoteImage;
+    progressView.hidden = YES;
+    [remoteImage release];
+}
+
+- (void)requestWentWrong:(ASIHTTPRequest *)request
+{
+//    NSError *error = [request error];
 }
 
 #pragma mark -
 #pragma mark UIViewController overridden methods
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    // Begin the asynchronous downloading of the image.
+    progressView.progress = 0.0;
+    NSURL *url = [NSURL URLWithString:item.imageURL];
+    ASIHTTPRequest *request = [[[ASIHTTPRequest alloc] initWithURL:url] autorelease];
+    [request setShowAccurateProgress:YES];
+    [request setDownloadProgressDelegate:progressView];
+    [request setDelegate:self];
+    [request setDidFinishSelector:@selector(requestDone:)];
+    [request setDidFailSelector:@selector(requestWentWrong:)];
+    [request start];
+}
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation 
 {

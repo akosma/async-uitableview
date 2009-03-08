@@ -23,14 +23,12 @@
 @synthesize date;
 @synthesize imageURL;
 @synthesize thumbnailURL;
-@synthesize image;
 @synthesize thumbnail;
 @synthesize delegate;
 
 - (void)dealloc
 {
     delegate = nil;
-    [image release];
     [thumbnail release];
     [imageURL release];
     [thumbnailURL release];
@@ -44,11 +42,6 @@
 #pragma mark -
 #pragma mark Public methods
 
-- (BOOL)hasLoadedImage
-{
-    return (image != nil);
-}
-
 - (BOOL)hasLoadedThumbnail
 {
     return (thumbnail != nil);
@@ -57,22 +50,10 @@
 #pragma mark -
 #pragma mark Overridden setters
 
-- (UIImage *)image
-{
-    if (image == nil)
-    {
-        loadingThumbnail = NO;
-        NSURL *url = [NSURL URLWithString:self.imageURL];
-        [self loadURL:url];
-    }
-    return image;
-}
-
 - (UIImage *)thumbnail
 {
     if (thumbnail == nil)
     {
-        loadingThumbnail = YES;
         NSURL *url = [NSURL URLWithString:self.thumbnailURL];
         [self loadURL:url];
     }
@@ -86,22 +67,10 @@
 {
     NSData *data = [request responseData];
     UIImage *remoteImage = [[UIImage alloc] initWithData:data];
-
-    if (loadingThumbnail)
+    self.thumbnail = remoteImage;
+    if ([delegate respondsToSelector:@selector(flickrItem:didLoadThumbnail:)])
     {
-        self.thumbnail = remoteImage;
-        if ([delegate respondsToSelector:@selector(flickrItem:didLoadThumbnail:)])
-        {
-            [delegate flickrItem:self didLoadThumbnail:self.thumbnail];
-        }
-    }
-    else
-    {
-        self.image = remoteImage;
-        if ([delegate respondsToSelector:@selector(flickrItem:didLoadImage:)])
-        {
-            [delegate flickrItem:self didLoadImage:self.image];
-        }
+        [delegate flickrItem:self didLoadThumbnail:self.thumbnail];
     }
     [remoteImage release];
 }
