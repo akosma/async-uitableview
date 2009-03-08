@@ -27,7 +27,7 @@
     [currentLink release];
     [currentImage release];
     [xmlParser release];
-	[newsItems release];
+    [newsItems release];
     [super dealloc];
 }
 
@@ -47,14 +47,14 @@
     NSData *data = [request responseData];
     [newsItems release];
     newsItems = nil;
-	newsItems = [[NSMutableArray alloc] init];
+    newsItems = [[NSMutableArray alloc] init];
     
-	xmlParser = [[NSXMLParser alloc] initWithData:data];
-	[xmlParser setDelegate:self];
-	[xmlParser setShouldProcessNamespaces:NO];
-	[xmlParser setShouldReportNamespacePrefixes:NO];
-	[xmlParser setShouldResolveExternalEntities:NO];
-	[xmlParser parse];
+    xmlParser = [[NSXMLParser alloc] initWithData:data];
+    [xmlParser setDelegate:self];
+    [xmlParser setShouldProcessNamespaces:NO];
+    [xmlParser setShouldReportNamespacePrefixes:NO];
+    [xmlParser setShouldResolveExternalEntities:NO];
+    [xmlParser parse];
 }
 
 - (void)requestWentWrong:(ASIHTTPRequest *)request
@@ -90,9 +90,9 @@
                                        qualifiedName:(NSString *)qName 
                                           attributes:(NSDictionary *)attributeDict
 {
-	currentElement = [elementName copy];
+    currentElement = [elementName copy];
     
-	if ([currentElement isEqualToString:@"item"])
+    if ([currentElement isEqualToString:@"item"])
     {
         [currentTitle release];
         currentTitle = nil;
@@ -105,15 +105,15 @@
         [currentImage release];
         currentImage = nil;
         
-		currentTitle = [[NSMutableString alloc] init];
-		currentDate = [[NSMutableString alloc] init];
-		currentSummary = [[NSMutableString alloc] init];
-		currentLink = [[NSMutableString alloc] init];
+        currentTitle = [[NSMutableString alloc] init];
+        currentDate = [[NSMutableString alloc] init];
+        currentSummary = [[NSMutableString alloc] init];
+        currentLink = [[NSMutableString alloc] init];
         currentImage = [[NSMutableString alloc] init];
-	}
+    }
     else if ([currentElement isEqualToString:@"media:thumbnail"]) 
     {
-		[currentImage appendString:[attributeDict objectForKey:@"url"]];
+        [currentImage appendString:[attributeDict objectForKey:@"url"]];
     }        
 }
 
@@ -122,7 +122,7 @@
                                      qualifiedName:(NSString *)qName
 {
     
-	if ([elementName isEqualToString:@"item"]) 
+    if ([elementName isEqualToString:@"item"]) 
     {
         FlickrItem *item = [[FlickrItem alloc] init];
         [currentTitle replaceOccurrencesOfString:@"\n" 
@@ -135,29 +135,29 @@
         item.date = currentDate;
         item.imageURL = currentImage;
         
-		[newsItems addObject:item];
+        [newsItems addObject:item];
         [item release];
-	}
+    }
 }
 
 - (void)parser:(NSXMLParser *)parser foundCharacters:(NSString *)string
 {
-	if ([currentElement isEqualToString:@"title"]) 
+    if ([currentElement isEqualToString:@"title"]) 
     {
-		[currentTitle appendString:string];
-	} 
+        [currentTitle appendString:string];
+    } 
     else if ([currentElement isEqualToString:@"link"]) 
     {
-		[currentLink appendString:string];
-	} 
+        [currentLink appendString:string];
+    } 
     else if ([currentElement isEqualToString:@"description"]) 
     {
-		[currentSummary appendString:string];
-	} 
+        [currentSummary appendString:string];
+    } 
     else if ([currentElement isEqualToString:@"pubDate"]) 
     {
-		[currentDate appendString:string];
-	}
+        [currentDate appendString:string];
+    }
 }
 
 - (void)parserDidEndDocument:(NSXMLParser *)parser 

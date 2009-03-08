@@ -53,12 +53,12 @@ Copyright (C) 2008 Apple Inc. All Rights Reserved.
 @interface Reachability : NSObject {
     
 @private
-	BOOL _networkStatusNotificationsEnabled;
-	
-	NSString *_hostName;
-	NSString *_address;
+    BOOL _networkStatusNotificationsEnabled;
     
-	NSMutableDictionary *_reachabilityQueries;
+    NSString *_hostName;
+    NSString *_address;
+    
+    NSMutableDictionary *_reachabilityQueries;
 }
 
 /*
@@ -66,9 +66,9 @@ Copyright (C) 2008 Apple Inc. All Rights Reserved.
  of the device.
  */
 typedef enum {
-	NotReachable = 0,
-	ReachableViaCarrierDataNetwork,
-	ReachableViaWiFiNetwork
+    NotReachable = 0,
+    ReachableViaCarrierDataNetwork,
+    ReachableViaWiFiNetwork
 } NetworkStatus;
 
 
@@ -106,9 +106,9 @@ static void ReachabilityCallback(SCNetworkReachabilityRef target, SCNetworkReach
 @interface ReachabilityQuery : NSObject
 {
 @private
-	SCNetworkReachabilityRef _reachabilityRef;
-	CFMutableArrayRef _runLoops;
-	NSString *_hostNameOrAddress;
+    SCNetworkReachabilityRef _reachabilityRef;
+    CFMutableArrayRef _runLoops;
+    NSString *_hostNameOrAddress;
 }
 // Keep around each network reachability query object so that we can
 // register for updates from those objects.

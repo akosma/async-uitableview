@@ -10,12 +10,12 @@
 
 @interface ASIFormDataRequest : ASIHTTPRequest {
 
-	// Parameters that will be POSTed to the url
-	NSMutableDictionary *postData;
-	
-	// Files that will be POSTed to the url
-	NSMutableDictionary *fileData;
-	
+    // Parameters that will be POSTed to the url
+    NSMutableDictionary *postData;
+    
+    // Files that will be POSTed to the url
+    NSMutableDictionary *fileData;
+    
 }
 
 #pragma mark setup request

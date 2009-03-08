@@ -12,13 +12,13 @@
 @interface RSS : NSObject 
 {
 @private
-	NSMutableArray *newsItems;
-	NSObject<RSSDelegate> *delegate;
+    NSMutableArray *newsItems;
+    NSObject<RSSDelegate> *delegate;
     NSURL *url;
     NSXMLParser *xmlParser;
 
-	NSString *currentElement;
-	NSMutableString *currentTitle;
+    NSString *currentElement;
+    NSMutableString *currentTitle;
     NSMutableString *currentDate;
     NSMutableString *currentSummary;
     NSMutableString *currentLink;

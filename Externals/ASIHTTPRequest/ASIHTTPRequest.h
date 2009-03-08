@@ -13,7 +13,7 @@
 
 // Dammit, importing frameworks when you are targetting two platforms is a PITA
 #if TARGET_OS_IPHONE
-	#import <CFNetwork/CFNetwork.h>
+    #import <CFNetwork/CFNetwork.h>
 #endif
 #import <stdio.h>
 
@@ -25,158 +25,158 @@ typedef enum _ASINetworkErrorType {
     ASIUnableToCreateRequestErrorType = 5,
     ASIInternalErrorWhileBuildingRequestType  = 6,
     ASIInternalErrorWhileApplyingCredentialsType  = 7,
-	ASIFileManagementError = 8
-	
+    ASIFileManagementError = 8
+    
 } ASINetworkErrorType;
 
 @interface ASIHTTPRequest : NSOperation {
-	
-	// The url for this operation, should include GET params in the query string where appropriate
-	NSURL *url; 
-	
-	// The delegate, you need to manage setting and talking to your delegate in your subclasses
-	id delegate;
-	
-	// HTTP method to use (GET / POST / PUT / DELETE). Defaults to GET
-	NSString *requestMethod;
-	
-	// Request body
-	NSData *postBody;
-	
-	// Dictionary for custom HTTP request headers
-	NSMutableDictionary *requestHeaders;
-	
-	// Will be populated with HTTP response headers from the server
-	NSDictionary *responseHeaders;
-	
-	// Can be used to manually insert cookie headers to a request, but it's more likely that sessionCookies will do this for you
-	NSMutableArray *requestCookies;
-	
-	// Will be populated with cookies
-	NSArray *responseCookies;
-	
-	// If use useCookiePersistance is true, network requests will present valid cookies from previous requests
-	BOOL useCookiePersistance;
-	
-	// If useKeychainPersistance is true, network requests will attempt to read credentials from the keychain, and will save them in the keychain when they are successfully presented
-	BOOL useKeychainPersistance;
-	
-	// If useSessionPersistance is true, network requests will save credentials and reuse for the duration of the session (until clearSession is called)
-	BOOL useSessionPersistance;
-	
-	// If allowCompressedResponse is true, requests will inform the server they can accept compressed data, and will automatically decompress gzipped responses. Default is true.
-	BOOL allowCompressedResponse;
-	
-	// When downloadDestinationPath is set, the result of this request will be downloaded to the file at this location
-	// If downloadDestinationPath is not set, download data will be stored in memory
-	NSString *downloadDestinationPath;
-	
-	//The location that files will be downloaded to. Once a download is complete, files will be decompressed (if necessary) and moved to downloadDestinationPath
-	NSString *temporaryFileDownloadPath;
-	
-	// Used for writing data to a file when downloadDestinationPath is set
-	NSOutputStream *outputStream;
-	
-	// When the request fails or completes successfully, complete will be true
-	BOOL complete;
-	
-	// If an error occurs, error will contain an NSError
-	// If error code is = ASIConnectionFailureErrorType (1, Connection failure occurred) - inspect [[error userInfo] objectForKey:NSUnderlyingErrorKey] for more information
-	NSError *error;
-	
-	// If an authentication error occurs, we give the delegate a chance to handle it, ignoreError will be set to true
-	BOOL ignoreError;
-	
-	// Username and password used for authentication
-	NSString *username;
-	NSString *password;
-	
-	// Domain used for NTLM authentication
-	NSString *domain;
-	
-	// Delegate for displaying upload progress (usually an NSProgressIndicator, but you can supply a different object and handle this yourself)
-	id uploadProgressDelegate;
-	
-	// Delegate for displaying download progress (usually an NSProgressIndicator, but you can supply a different object and handle this yourself)
-	id downloadProgressDelegate;
-	
-	// Whether we've seen the headers of the response yet
+    
+    // The url for this operation, should include GET params in the query string where appropriate
+    NSURL *url; 
+    
+    // The delegate, you need to manage setting and talking to your delegate in your subclasses
+    id delegate;
+    
+    // HTTP method to use (GET / POST / PUT / DELETE). Defaults to GET
+    NSString *requestMethod;
+    
+    // Request body
+    NSData *postBody;
+    
+    // Dictionary for custom HTTP request headers
+    NSMutableDictionary *requestHeaders;
+    
+    // Will be populated with HTTP response headers from the server
+    NSDictionary *responseHeaders;
+    
+    // Can be used to manually insert cookie headers to a request, but it's more likely that sessionCookies will do this for you
+    NSMutableArray *requestCookies;
+    
+    // Will be populated with cookies
+    NSArray *responseCookies;
+    
+    // If use useCookiePersistance is true, network requests will present valid cookies from previous requests
+    BOOL useCookiePersistance;
+    
+    // If useKeychainPersistance is true, network requests will attempt to read credentials from the keychain, and will save them in the keychain when they are successfully presented
+    BOOL useKeychainPersistance;
+    
+    // If useSessionPersistance is true, network requests will save credentials and reuse for the duration of the session (until clearSession is called)
+    BOOL useSessionPersistance;
+    
+    // If allowCompressedResponse is true, requests will inform the server they can accept compressed data, and will automatically decompress gzipped responses. Default is true.
+    BOOL allowCompressedResponse;
+    
+    // When downloadDestinationPath is set, the result of this request will be downloaded to the file at this location
+    // If downloadDestinationPath is not set, download data will be stored in memory
+    NSString *downloadDestinationPath;
+    
+    //The location that files will be downloaded to. Once a download is complete, files will be decompressed (if necessary) and moved to downloadDestinationPath
+    NSString *temporaryFileDownloadPath;
+    
+    // Used for writing data to a file when downloadDestinationPath is set
+    NSOutputStream *outputStream;
+    
+    // When the request fails or completes successfully, complete will be true
+    BOOL complete;
+    
+    // If an error occurs, error will contain an NSError
+    // If error code is = ASIConnectionFailureErrorType (1, Connection failure occurred) - inspect [[error userInfo] objectForKey:NSUnderlyingErrorKey] for more information
+    NSError *error;
+    
+    // If an authentication error occurs, we give the delegate a chance to handle it, ignoreError will be set to true
+    BOOL ignoreError;
+    
+    // Username and password used for authentication
+    NSString *username;
+    NSString *password;
+    
+    // Domain used for NTLM authentication
+    NSString *domain;
+    
+    // Delegate for displaying upload progress (usually an NSProgressIndicator, but you can supply a different object and handle this yourself)
+    id uploadProgressDelegate;
+    
+    // Delegate for displaying download progress (usually an NSProgressIndicator, but you can supply a different object and handle this yourself)
+    id downloadProgressDelegate;
+    
+    // Whether we've seen the headers of the response yet
     BOOL haveExaminedHeaders;
-	
-	// Data we receive will be stored here. Data may be compressed unless allowCompressedResponse is false - you should use [request responseData] instead in most cases
-	NSMutableData *rawResponseData;
-	
-	// Used for sending and receiving data
-    CFHTTPMessageRef request;	
-	CFReadStreamRef readStream;
-	
-	// Authentication currently being used for prompting and resuming
+    
+    // Data we receive will be stored here. Data may be compressed unless allowCompressedResponse is false - you should use [request responseData] instead in most cases
+    NSMutableData *rawResponseData;
+    
+    // Used for sending and receiving data
+    CFHTTPMessageRef request;    
+    CFReadStreamRef readStream;
+    
+    // Authentication currently being used for prompting and resuming
     CFHTTPAuthenticationRef requestAuthentication; 
-	NSMutableDictionary *requestCredentials;
-	
-	// HTTP status code, eg: 200 = OK, 404 = Not found etc
-	int responseStatusCode;
-	
-	// Size of the response
-	unsigned long long contentLength;
-	
-	// Size of the POST payload
-	unsigned long long postLength;	
-	
-	// The total amount of downloaded data
-	unsigned long long totalBytesRead;
-	
-	// Last amount of data read (used for incrementing progress)
-	unsigned long long lastBytesRead;
-	// Last amount of data sent (used for incrementing progress)
-	unsigned long long lastBytesSent;
-	
-	// Realm for authentication when credentials are required
-	NSString *authenticationRealm;
-	
-	// This lock will block the request until the delegate supplies authentication info
-	NSConditionLock *authenticationLock;
-	
-	// This lock prevents the operation from being cancelled at an inopportune moment
-	NSLock *cancelledLock;
-	
-	// Called on the delegate when the request completes successfully
-	SEL didFinishSelector;
-	
-	// Called on the delegate when the request fails
-	SEL didFailSelector;
-	
-	// Used for recording when something last happened during the request, we will compare this value with the current date to time out requests when appropriate
-	NSDate *lastActivityTime;
-	
-	// Number of seconds to wait before timing out - default is 10
-	NSTimeInterval timeOutSeconds;
-	
-	// Autorelease pool for the main loop, since it's highly likely that this operation will run in a thread
-	NSAutoreleasePool *pool;
-	
-	// Will be YES when a HEAD request will handle the content-length before this request starts
-	BOOL shouldResetProgressIndicators;
-	
-	// Used by HEAD requests when showAccurateProgress is YES to preset the content-length for this request
-	ASIHTTPRequest *mainRequest;
-	
-	// When NO, this request will only update the progress indicator when it completes
-	// When YES, this request will update the progress indicator according to how much data it has received so far
-	// The default for requests is YES
-	// Also see the comments in ASINetworkQueue.h
-	BOOL showAccurateProgress;
-	
-	// Used to ensure the progress indicator is only incremented once when showAccurateProgress = NO
-	BOOL updatedProgress;
-	
-	// Prevents the body of the post being built more than once (largely for subclasses)
-	BOOL haveBuiltPostBody;
-	
-	unsigned long long uploadBufferSize;
-	
-	NSStringEncoding defaultResponseEncoding;
-	NSStringEncoding responseEncoding;
+    NSMutableDictionary *requestCredentials;
+    
+    // HTTP status code, eg: 200 = OK, 404 = Not found etc
+    int responseStatusCode;
+    
+    // Size of the response
+    unsigned long long contentLength;
+    
+    // Size of the POST payload
+    unsigned long long postLength;    
+    
+    // The total amount of downloaded data
+    unsigned long long totalBytesRead;
+    
+    // Last amount of data read (used for incrementing progress)
+    unsigned long long lastBytesRead;
+    // Last amount of data sent (used for incrementing progress)
+    unsigned long long lastBytesSent;
+    
+    // Realm for authentication when credentials are required
+    NSString *authenticationRealm;
+    
+    // This lock will block the request until the delegate supplies authentication info
+    NSConditionLock *authenticationLock;
+    
+    // This lock prevents the operation from being cancelled at an inopportune moment
+    NSLock *cancelledLock;
+    
+    // Called on the delegate when the request completes successfully
+    SEL didFinishSelector;
+    
+    // Called on the delegate when the request fails
+    SEL didFailSelector;
+    
+    // Used for recording when something last happened during the request, we will compare this value with the current date to time out requests when appropriate
+    NSDate *lastActivityTime;
+    
+    // Number of seconds to wait before timing out - default is 10
+    NSTimeInterval timeOutSeconds;
+    
+    // Autorelease pool for the main loop, since it's highly likely that this operation will run in a thread
+    NSAutoreleasePool *pool;
+    
+    // Will be YES when a HEAD request will handle the content-length before this request starts
+    BOOL shouldResetProgressIndicators;
+    
+    // Used by HEAD requests when showAccurateProgress is YES to preset the content-length for this request
+    ASIHTTPRequest *mainRequest;
+    
+    // When NO, this request will only update the progress indicator when it completes
+    // When YES, this request will update the progress indicator according to how much data it has received so far
+    // The default for requests is YES
+    // Also see the comments in ASINetworkQueue.h
+    BOOL showAccurateProgress;
+    
+    // Used to ensure the progress indicator is only incremented once when showAccurateProgress = NO
+    BOOL updatedProgress;
+    
+    // Prevents the body of the post being built more than once (largely for subclasses)
+    BOOL haveBuiltPostBody;
+    
+    unsigned long long uploadBufferSize;
+    
+    NSStringEncoding defaultResponseEncoding;
+    NSStringEncoding responseEncoding;
 }
 
 #pragma mark init / dealloc

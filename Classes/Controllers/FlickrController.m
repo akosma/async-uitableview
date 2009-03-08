@@ -154,12 +154,12 @@
 
 - (void)viewWillAppear:(BOOL)animated 
 {
-	// Unselect the selected row if any
+    // Unselect the selected row if any
     // http://forums.macrumors.com/showthread.php?t=577677
-	NSIndexPath* selection = [self.tableView indexPathForSelectedRow];
-	if (selection)
+    NSIndexPath* selection = [self.tableView indexPathForSelectedRow];
+    if (selection)
     {
-		[self.tableView deselectRowAtIndexPath:selection animated:YES];
+        [self.tableView deselectRowAtIndexPath:selection animated:YES];
     }
 }
 
