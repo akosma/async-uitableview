@@ -101,6 +101,9 @@
 
 - (void)loadImage
 {
+    // The getter in the FlickrItem class is overloaded...!
+    // If the image is not yet downloaded, it returns nil and 
+    // begins the asynchronous downloading of the image.
     UIImage *image = item.image;
     if (image == nil)
     {
