@@ -10,6 +10,11 @@
 #import "ASIHTTPRequest.h"
 #import "AsyncTableAppDelegate.h"
 
+@interface FlickrItem (Private)
+- (void)loadURL:(NSURL *)url;
+@end
+
+
 @implementation FlickrItem
 
 @synthesize title;
@@ -17,13 +22,18 @@
 @synthesize summary;
 @synthesize date;
 @synthesize imageURL;
+@synthesize thumbnailURL;
 @synthesize image;
+@synthesize thumbnail;
 @synthesize delegate;
 
 - (void)dealloc
 {
+    delegate = nil;
     [image release];
+    [thumbnail release];
     [imageURL release];
+    [thumbnailURL release];
     [title release];
     [link release];
     [summary release];
@@ -31,33 +41,56 @@
     [super dealloc];
 }
 
+#pragma mark -
+#pragma mark Overridden setters
+
 - (UIImage *)image
 {
     if (image == nil)
     {
+        loadingThumbnail = NO;
         NSURL *url = [NSURL URLWithString:self.imageURL];
-        ASIHTTPRequest *request = [[ASIHTTPRequest alloc] initWithURL:url];
-        [request setDelegate:self];
-        [request setDidFinishSelector:@selector(requestDone:)];
-        [request setDidFailSelector:@selector(requestWentWrong:)];
-        NSOperationQueue *queue = [AsyncTableAppDelegate sharedAppDelegate].downloadQueue;
-        [queue addOperation:request];
-        [request release];
+        [self loadURL:url];
     }
     return image;
 }
+
+- (UIImage *)thumbnail
+{
+    if (thumbnail == nil)
+    {
+        loadingThumbnail = YES;
+        NSURL *url = [NSURL URLWithString:self.thumbnailURL];
+        [self loadURL:url];
+    }
+    return thumbnail;
+}
+
+#pragma mark -
+#pragma mark ASIHTTPRequest delegate methods
 
 - (void)requestDone:(ASIHTTPRequest *)request
 {
     NSData *data = [request responseData];
     UIImage *remoteImage = [[UIImage alloc] initWithData:data];
-    self.image = remoteImage;
-    [remoteImage release];
 
-    if ([delegate respondsToSelector:@selector(flickrItem:didLoadImage:)])
+    if (loadingThumbnail)
     {
-        [delegate flickrItem:self didLoadImage:self.image];
+        self.thumbnail = remoteImage;
+        if ([delegate respondsToSelector:@selector(flickrItem:didLoadThumbnail:)])
+        {
+            [delegate flickrItem:self didLoadThumbnail:self.thumbnail];
+        }
     }
+    else
+    {
+        self.image = remoteImage;
+        if ([delegate respondsToSelector:@selector(flickrItem:didLoadImage:)])
+        {
+            [delegate flickrItem:self didLoadImage:self.image];
+        }
+    }
+    [remoteImage release];
 }
 
 - (void)requestWentWrong:(ASIHTTPRequest *)request
@@ -67,6 +100,20 @@
     {
         [delegate flickrItem:self couldNotLoadImageError:error];
     }
+}
+
+#pragma mark -
+#pragma mark Private methods
+
+- (void)loadURL:(NSURL *)url
+{
+    ASIHTTPRequest *request = [[ASIHTTPRequest alloc] initWithURL:url];
+    [request setDelegate:self];
+    [request setDidFinishSelector:@selector(requestDone:)];
+    [request setDidFailSelector:@selector(requestWentWrong:)];
+    NSOperationQueue *queue = [AsyncTableAppDelegate sharedAppDelegate].downloadQueue;
+    [queue addOperation:request];
+    [request release];    
 }
 
 @end

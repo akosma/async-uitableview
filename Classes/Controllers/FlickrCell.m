@@ -12,6 +12,7 @@
 @implementation FlickrCell
 
 @synthesize item;
+@synthesize delegate;
 
 #pragma mark -
 #pragma mark Constructor and destructor
@@ -45,9 +46,10 @@
 
 - (void)dealloc 
 {
+    delegate = nil;
     [photo release];
     [textLabel release];
-    item.delegate = nil;
+    [item setDelegate:nil];
     [item release];
     [super dealloc];
 }
@@ -69,30 +71,20 @@
         if (item != nil)
         {
             textLabel.text = item.title;
-            photo.image = item.image;
+            photo.image = item.thumbnail;
         }
     }
 }
 
 - (void)toggleImage
 {
-    UIImage *akosma = [UIImage imageNamed:@"akosma.png"];
-
     [UIView beginAnimations:nil context:NULL];
     [UIView setAnimationDuration:0.5];
     [UIView setAnimationTransition:UIViewAnimationTransitionFlipFromLeft forView:photo cache:YES];
     [UIView setAnimationDelegate:self];
+    [UIView setAnimationDidStopSelector:@selector(animationFinished)];
     
-    if (photo.image != item.image)
-    {
-        photo.image = item.image;
-        photo.contentMode = UIViewContentModeScaleAspectFill;
-    }
-    else
-    {
-        photo.image = akosma;
-        photo.contentMode = UIViewContentModeScaleToFill;
-    }
+    photo.image = item.thumbnail;
     
     [UIView commitAnimations];
 }
@@ -102,7 +94,7 @@
     // The getter in the FlickrItem class is overloaded...!
     // If the image is not yet downloaded, it returns nil and 
     // begins the asynchronous downloading of the image.
-    UIImage *image = item.image;
+    UIImage *image = item.thumbnail;
     if (image == nil)
     {
         [scrollingWheel startAnimating];
@@ -113,7 +105,7 @@
 #pragma mark -
 #pragma mark FlickrItemDelegate methods
 
-- (void)flickrItem:(FlickrItem *)item didLoadImage:(UIImage *)image
+- (void)flickrItem:(FlickrItem *)item didLoadThumbnail:(UIImage *)image
 {
     photo.image = image;
     [scrollingWheel stopAnimating];
@@ -123,6 +115,17 @@
 {
     // Here we could show a "default" or "placeholder" image...
     [scrollingWheel stopAnimating];
+}
+
+#pragma mark -
+#pragma mark UIView animation delegate methods
+
+- (void)animationFinished
+{
+    if ([delegate respondsToSelector:@selector(flickrCellAnimationFinished:)])
+    {
+        [delegate flickrCellAnimationFinished:self];
+    }
 }
 
 @end

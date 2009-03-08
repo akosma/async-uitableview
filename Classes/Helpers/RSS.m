@@ -19,6 +19,7 @@
 
 - (void)dealloc 
 {
+    delegate = nil;
     [url release];
     [currentElement release];
     [currentTitle release];
@@ -26,6 +27,7 @@
     [currentSummary release];
     [currentLink release];
     [currentImage release];
+    [currentThumbnail release];
     [xmlParser release];
     [newsItems release];
     [super dealloc];
@@ -104,14 +106,21 @@
         currentLink = nil;
         [currentImage release];
         currentImage = nil;
+        [currentThumbnail release];
+        currentThumbnail = nil;
         
         currentTitle = [[NSMutableString alloc] init];
         currentDate = [[NSMutableString alloc] init];
         currentSummary = [[NSMutableString alloc] init];
         currentLink = [[NSMutableString alloc] init];
         currentImage = [[NSMutableString alloc] init];
+        currentThumbnail = [[NSMutableString alloc] init];
     }
     else if ([currentElement isEqualToString:@"media:thumbnail"]) 
+    {
+        [currentThumbnail appendString:[attributeDict objectForKey:@"url"]];
+    }        
+    else if ([currentElement isEqualToString:@"enclosure"]) 
     {
         [currentImage appendString:[attributeDict objectForKey:@"url"]];
     }        
@@ -134,6 +143,7 @@
         item.summary = currentSummary;
         item.date = currentDate;
         item.imageURL = currentImage;
+        item.thumbnailURL = currentThumbnail;
         
         [newsItems addObject:item];
         [item release];

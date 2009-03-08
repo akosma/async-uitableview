@@ -23,6 +23,7 @@
     NSMutableString *currentSummary;
     NSMutableString *currentLink;
     NSMutableString *currentImage;
+    NSMutableString *currentThumbnail;
 }
 
 @property (nonatomic, assign) NSObject<RSSDelegate> *delegate;

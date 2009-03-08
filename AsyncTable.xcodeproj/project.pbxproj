@@ -24,12 +24,13 @@
 		3A18BE8E0F644258007D5CB9 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A18BE8D0F644258007D5CB9 /* SystemConfiguration.framework */; };
 		3A18BE900F644263007D5CB9 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A18BE8F0F644263007D5CB9 /* CFNetwork.framework */; };
 		3A18BE930F64427C007D5CB9 /* libz.1.2.3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A18BE920F64427C007D5CB9 /* libz.1.2.3.dylib */; };
-		3A4686AD0F645A91001B5E56 /* akosma.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A4686A80F645A91001B5E56 /* akosma.png */; };
 		3A4686AE0F645A91001B5E56 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A4686A90F645A91001B5E56 /* Default.png */; };
 		3A4686B00F645A91001B5E56 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A4686AB0F645A91001B5E56 /* Icon.png */; };
 		3A4686B10F645A91001B5E56 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A4686AC0F645A91001B5E56 /* MainWindow.xib */; };
 		3A4686B40F645AB6001B5E56 /* Entitlements.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3A4686B30F645AB6001B5E56 /* Entitlements.plist */; };
 		3A4686B60F645ABF001B5E56 /* README.textile in Resources */ = {isa = PBXBuildFile; fileRef = 3A4686B50F645ABF001B5E56 /* README.textile */; };
+		3ABCE8A50F645D2C003CE490 /* FlickrItemController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ABCE8A40F645D2C003CE490 /* FlickrItemController.m */; };
+		3ABCE8A70F645D9C003CE490 /* FlickrItem.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3ABCE8A60F645D9C003CE490 /* FlickrItem.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -65,12 +66,15 @@
 		3A18BE8D0F644258007D5CB9 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		3A18BE8F0F644263007D5CB9 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		3A18BE920F64427C007D5CB9 /* libz.1.2.3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.1.2.3.dylib; path = usr/lib/libz.1.2.3.dylib; sourceTree = SDKROOT; };
-		3A4686A80F645A91001B5E56 /* akosma.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = akosma.png; sourceTree = "<group>"; };
 		3A4686A90F645A91001B5E56 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		3A4686AB0F645A91001B5E56 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
 		3A4686AC0F645A91001B5E56 /* MainWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainWindow.xib; sourceTree = "<group>"; };
 		3A4686B30F645AB6001B5E56 /* Entitlements.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Entitlements.plist; sourceTree = SOURCE_ROOT; };
 		3A4686B50F645ABF001B5E56 /* README.textile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.textile; sourceTree = "<group>"; };
+		3ABCE8A30F645D2C003CE490 /* FlickrItemController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlickrItemController.h; sourceTree = "<group>"; };
+		3ABCE8A40F645D2C003CE490 /* FlickrItemController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlickrItemController.m; sourceTree = "<group>"; };
+		3ABCE8A60F645D9C003CE490 /* FlickrItem.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FlickrItem.xib; sourceTree = "<group>"; };
+		3ABCE8EA0F646481003CE490 /* FlickrCellDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlickrCellDelegate.h; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = ../Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -161,8 +165,11 @@
 			children = (
 				3A18BE210F643D0C007D5CB9 /* FlickrCell.h */,
 				3A18BE220F643D0C007D5CB9 /* FlickrCell.m */,
+				3ABCE8EA0F646481003CE490 /* FlickrCellDelegate.h */,
 				3A18BE230F643D0C007D5CB9 /* FlickrController.h */,
 				3A18BE240F643D0C007D5CB9 /* FlickrController.m */,
+				3ABCE8A30F645D2C003CE490 /* FlickrItemController.h */,
+				3ABCE8A40F645D2C003CE490 /* FlickrItemController.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -225,10 +232,10 @@
 			children = (
 				3A4686B30F645AB6001B5E56 /* Entitlements.plist */,
 				8D1107310486CEB800E47090 /* Info.plist */,
-				3A4686A80F645A91001B5E56 /* akosma.png */,
 				3A4686A90F645A91001B5E56 /* Default.png */,
 				3A4686AB0F645A91001B5E56 /* Icon.png */,
 				3A4686AC0F645A91001B5E56 /* MainWindow.xib */,
+				3ABCE8A60F645D9C003CE490 /* FlickrItem.xib */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -275,12 +282,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3A4686AD0F645A91001B5E56 /* akosma.png in Resources */,
 				3A4686AE0F645A91001B5E56 /* Default.png in Resources */,
 				3A4686B00F645A91001B5E56 /* Icon.png in Resources */,
 				3A4686B10F645A91001B5E56 /* MainWindow.xib in Resources */,
 				3A4686B40F645AB6001B5E56 /* Entitlements.plist in Resources */,
 				3A4686B60F645ABF001B5E56 /* README.textile in Resources */,
+				3ABCE8A70F645D9C003CE490 /* FlickrItem.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -302,6 +309,7 @@
 				3A18BE420F643D3C007D5CB9 /* ASINetworkQueue.m in Sources */,
 				3A18BE430F643D3C007D5CB9 /* NSHTTPCookieAdditions.m in Sources */,
 				3A18BE7B0F644130007D5CB9 /* Reachability.m in Sources */,
+				3ABCE8A50F645D2C003CE490 /* FlickrItemController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

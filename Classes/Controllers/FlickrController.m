@@ -11,6 +11,7 @@
 #import "Definitions.h"
 #import "FlickrItem.h"
 #import "FlickrCell.h"
+#import "FlickrItemController.h"
 #import "AsyncTableAppDelegate.h"
 #import "Reachability.h"
 
@@ -44,6 +45,7 @@
 {
     [navigationController release];
     [flickrItems release];
+    [rss setDelegate:nil];
     [rss release];
     [super dealloc];
 }
@@ -101,6 +103,19 @@
 }
 
 #pragma mark -
+#pragma mark FlickrCellDelegate methods
+
+- (void)flickrCellAnimationFinished:(FlickrCell *)cell
+{
+    NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
+    FlickrItem *item = [flickrItems objectAtIndex:indexPath.row];
+    FlickrItemController *controller = [[FlickrItemController alloc] init];
+    controller.item = item;
+    [self.navigationController pushViewController:controller animated:YES];
+    [controller release];    
+}
+
+#pragma mark -
 #pragma mark Table view methods
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView 
@@ -122,6 +137,7 @@
     {
         CGRect rect = CGRectMake(0.0, 0.0, 320.0, 75.0);
         cell = [[[FlickrCell alloc] initWithFrame:rect reuseIdentifier:identifier] autorelease];
+        cell.delegate = self;
     }
     cell.item = item;
     return cell;

@@ -17,12 +17,16 @@
     NSString *summary;
     NSString *date;
     NSString *imageURL;
+    NSString *thumbnailURL;
     UIImage *image;
+    UIImage *thumbnail;
 
     // Why NSObject instead of "id"? Because this way
     // we can ask if it "respondsToSelector:" before invoking
     // any delegate method...
     NSObject<FlickrItemDelegate> *delegate;
+    
+    BOOL loadingThumbnail;
 }
 
 @property (nonatomic, copy) NSString *title;
@@ -30,7 +34,9 @@
 @property (nonatomic, copy) NSString *summary;
 @property (nonatomic, copy) NSString *date;
 @property (nonatomic, copy) NSString *imageURL;
+@property (nonatomic, copy) NSString *thumbnailURL;
 @property (nonatomic, retain) UIImage *image;
+@property (nonatomic, retain) UIImage *thumbnail;
 @property (nonatomic, assign) NSObject<FlickrItemDelegate> *delegate;
 
 @end

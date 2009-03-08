@@ -8,10 +8,11 @@
 
 #import <UIKit/UIKit.h>
 #import "RSSDelegate.h"
+#import "FlickrCellDelegate.h"
 
 @class RSS;
 
-@interface FlickrController : UITableViewController <RSSDelegate>
+@interface FlickrController : UITableViewController <RSSDelegate, FlickrCellDelegate>
 {
 @private
     RSS *rss;

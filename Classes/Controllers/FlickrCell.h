@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "FlickrItemDelegate.h"
+#import "FlickrCellDelegate.h"
 
 @class FlickrItem;
 
@@ -18,9 +19,11 @@
     FlickrItem *item;
     UIImageView *photo;
     UIActivityIndicatorView *scrollingWheel;
+    NSObject<FlickrCellDelegate> *delegate;
 }
 
 @property (nonatomic, retain) FlickrItem *item;
+@property (nonatomic, assign) NSObject<FlickrCellDelegate> *delegate;
 
 - (void)loadImage;
 - (void)toggleImage;
