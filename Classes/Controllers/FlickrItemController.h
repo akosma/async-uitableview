@@ -10,6 +10,7 @@
 #import "FlickrItemDelegate.h"
 
 @class FlickrItem;
+@class ASINetworkQueue;
 
 @interface FlickrItemController : UIViewController <FlickrItemDelegate>
 {
@@ -18,6 +19,7 @@
     IBOutlet UIProgressView *progressView;
     IBOutlet UIButton *saveButton;
     FlickrItem *item;
+    ASINetworkQueue *downloadQueue;
 }
 
 @property (nonatomic, retain) FlickrItem *item;

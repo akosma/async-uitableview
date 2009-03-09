@@ -9,6 +9,7 @@
 #import "FlickrItemController.h"
 #import "FlickrItem.h"
 #import "ASIHTTPRequest.h"
+#import "ASINetworkQueue.h"
 
 @implementation FlickrItemController
 
@@ -21,12 +22,14 @@
 {
     if (self = [super initWithNibName:@"FlickrItem" bundle:nil]) 
     {
+        downloadQueue = [[ASINetworkQueue alloc] init];
     }
     return self;
 }
 
 - (void)dealloc 
 {
+    [downloadQueue release];
     [item setDelegate:nil];
     [item release];
     [super dealloc];
@@ -90,7 +93,7 @@
 }
 
 #pragma mark -
-#pragma mark ASIHTTPRequest delegate methods
+#pragma mark ASINetworkQueue delegate methods
 
 - (void)requestDone:(ASIHTTPRequest *)request
 {
@@ -114,13 +117,18 @@
     // Begin the asynchronous downloading of the image.
     progressView.progress = 0.0;
     NSURL *url = [NSURL URLWithString:item.imageURL];
+    
+    // Somehow, updating the progress view cannot be properly done
+    // without a queue (thread issues?), so here we use a local
+    // queue which updates the UIProgressView instance.
     ASIHTTPRequest *request = [[[ASIHTTPRequest alloc] initWithURL:url] autorelease];
-    [request setShowAccurateProgress:YES];
-    [request setDownloadProgressDelegate:progressView];
-    [request setDelegate:self];
-    [request setDidFinishSelector:@selector(requestDone:)];
-    [request setDidFailSelector:@selector(requestWentWrong:)];
-    [request start];
+    [downloadQueue setDelegate:self];
+    [downloadQueue setRequestDidFinishSelector:@selector(requestDone:)];
+    [downloadQueue setRequestDidFailSelector:@selector(requestWentWrong:)];
+    [downloadQueue setShowAccurateProgress:YES];
+    [downloadQueue setDownloadProgressDelegate:progressView];
+    [downloadQueue addOperation:request];
+    [downloadQueue go];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation 
