@@ -28,7 +28,6 @@
 		3A4686B00F645A91001B5E56 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A4686AB0F645A91001B5E56 /* Icon.png */; };
 		3A4686B10F645A91001B5E56 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A4686AC0F645A91001B5E56 /* MainWindow.xib */; };
 		3A4686B40F645AB6001B5E56 /* Entitlements.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3A4686B30F645AB6001B5E56 /* Entitlements.plist */; };
-		3A4686B60F645ABF001B5E56 /* README.textile in Resources */ = {isa = PBXBuildFile; fileRef = 3A4686B50F645ABF001B5E56 /* README.textile */; };
 		3ABCE8A50F645D2C003CE490 /* FlickrItemController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ABCE8A40F645D2C003CE490 /* FlickrItemController.m */; };
 		3ABCE8A70F645D9C003CE490 /* FlickrItem.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3ABCE8A60F645D9C003CE490 /* FlickrItem.xib */; };
 /* End PBXBuildFile section */
@@ -70,7 +69,6 @@
 		3A4686AB0F645A91001B5E56 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
 		3A4686AC0F645A91001B5E56 /* MainWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainWindow.xib; sourceTree = "<group>"; };
 		3A4686B30F645AB6001B5E56 /* Entitlements.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Entitlements.plist; sourceTree = SOURCE_ROOT; };
-		3A4686B50F645ABF001B5E56 /* README.textile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.textile; sourceTree = "<group>"; };
 		3ABCE8A30F645D2C003CE490 /* FlickrItemController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlickrItemController.h; sourceTree = "<group>"; };
 		3ABCE8A40F645D2C003CE490 /* FlickrItemController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlickrItemController.m; sourceTree = "<group>"; };
 		3ABCE8A60F645D9C003CE490 /* FlickrItem.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FlickrItem.xib; sourceTree = "<group>"; };
@@ -106,7 +104,6 @@
 		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
 			isa = PBXGroup;
 			children = (
-				3A4686B50F645ABF001B5E56 /* README.textile */,
 				3A18BE1A0F643D0C007D5CB9 /* Classes */,
 				3A18BE360F643D3C007D5CB9 /* Externals */,
 				29B97315FDCFA39411CA2CEA /* Other Sources */,
@@ -293,7 +290,6 @@
 				3A4686B00F645A91001B5E56 /* Icon.png in Resources */,
 				3A4686B10F645A91001B5E56 /* MainWindow.xib in Resources */,
 				3A4686B40F645AB6001B5E56 /* Entitlements.plist in Resources */,
-				3A4686B60F645ABF001B5E56 /* README.textile in Resources */,
 				3ABCE8A70F645D9C003CE490 /* FlickrItem.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -78,6 +78,7 @@
             if ([item hasLoadedThumbnail])
             {
                 photo.image = item.thumbnail;
+                [scrollingWheel stopAnimating];
             }
             else
             {
