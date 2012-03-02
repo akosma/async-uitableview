@@ -11,6 +11,7 @@
 		1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
 		1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
 		288765A50DF7441C002DB57D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765A40DF7441C002DB57D /* CoreGraphics.framework */; };
+		3A0DC39E1501198200E24823 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A0DC39D1501198200E24823 /* libz.dylib */; };
 		3A18BE2F0F643D0C007D5CB9 /* AsyncTableAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A18BE1D0F643D0C007D5CB9 /* AsyncTableAppDelegate.m */; };
 		3A18BE310F643D0C007D5CB9 /* FlickrCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A18BE220F643D0C007D5CB9 /* FlickrCell.m */; };
 		3A18BE320F643D0C007D5CB9 /* FlickrController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A18BE240F643D0C007D5CB9 /* FlickrController.m */; };
@@ -23,7 +24,6 @@
 		3A18BE7B0F644130007D5CB9 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A18BE7A0F644130007D5CB9 /* Reachability.m */; };
 		3A18BE8E0F644258007D5CB9 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A18BE8D0F644258007D5CB9 /* SystemConfiguration.framework */; };
 		3A18BE900F644263007D5CB9 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A18BE8F0F644263007D5CB9 /* CFNetwork.framework */; };
-		3A18BE930F64427C007D5CB9 /* libz.1.2.3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A18BE920F64427C007D5CB9 /* libz.1.2.3.dylib */; };
 		3A4686AE0F645A91001B5E56 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A4686A90F645A91001B5E56 /* Default.png */; };
 		3A4686B00F645A91001B5E56 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A4686AB0F645A91001B5E56 /* Icon.png */; };
 		3A4686B10F645A91001B5E56 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A4686AC0F645A91001B5E56 /* MainWindow.xib */; };
@@ -40,6 +40,7 @@
 		288765A40DF7441C002DB57D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		32CA4F630368D1EE00C91783 /* AsyncTable_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AsyncTable_Prefix.pch; sourceTree = "<group>"; };
+		3A0DC39D1501198200E24823 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		3A18BE1C0F643D0C007D5CB9 /* AsyncTableAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AsyncTableAppDelegate.h; sourceTree = "<group>"; };
 		3A18BE1D0F643D0C007D5CB9 /* AsyncTableAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AsyncTableAppDelegate.m; sourceTree = "<group>"; };
 		3A18BE210F643D0C007D5CB9 /* FlickrCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlickrCell.h; sourceTree = "<group>"; };
@@ -65,7 +66,6 @@
 		3A18BE7A0F644130007D5CB9 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
 		3A18BE8D0F644258007D5CB9 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		3A18BE8F0F644263007D5CB9 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
-		3A18BE920F64427C007D5CB9 /* libz.1.2.3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.1.2.3.dylib; path = usr/lib/libz.1.2.3.dylib; sourceTree = SDKROOT; };
 		3A4686A90F645A91001B5E56 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		3A4686AB0F645A91001B5E56 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
 		3A4686AC0F645A91001B5E56 /* MainWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainWindow.xib; sourceTree = "<group>"; };
@@ -83,12 +83,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3A0DC39E1501198200E24823 /* libz.dylib in Frameworks */,
 				1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */,
 				1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */,
 				288765A50DF7441C002DB57D /* CoreGraphics.framework in Frameworks */,
 				3A18BE8E0F644258007D5CB9 /* SystemConfiguration.framework in Frameworks */,
 				3A18BE900F644263007D5CB9 /* CFNetwork.framework in Frameworks */,
-				3A18BE930F64427C007D5CB9 /* libz.1.2.3.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -130,7 +130,7 @@
 		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				3A18BE920F64427C007D5CB9 /* libz.1.2.3.dylib */,
+				3A0DC39D1501198200E24823 /* libz.dylib */,
 				3A18BE8F0F644263007D5CB9 /* CFNetwork.framework */,
 				3A18BE8D0F644258007D5CB9 /* SystemConfiguration.framework */,
 				1DF5F4DF0D08C38300B7A737 /* UIKit.framework */,

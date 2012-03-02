@@ -3,13 +3,13 @@
 //  AsyncTable
 //
 //  Created by Adrian on 3/8/09.
-//  Copyright 2008 __MyCompanyName__. All rights reserved.
+//  Copyright 2008 akosma software. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
 #import "RSSDelegate.h"
 
-@interface RSS : NSObject 
+@interface RSS : NSObject <NSXMLParserDelegate>
 {
 @private
     NSMutableArray *newsItems;

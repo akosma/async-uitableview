@@ -3,7 +3,7 @@
 //  AsyncTable
 //
 //  Created by Adrian on 3/8/09.
-//  Copyright 2009 __MyCompanyName__. All rights reserved.
+//  Copyright 2009 akosma software. All rights reserved.
 //
 
 #import "FlickrItemController.h"

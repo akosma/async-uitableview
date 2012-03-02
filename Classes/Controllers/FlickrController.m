@@ -3,7 +3,7 @@
 //  AsyncTable
 //
 //  Created by Adrian on 3/8/09.
-//  Copyright 2009 __MyCompanyName__. All rights reserved.
+//  Copyright 2009 akosma software. All rights reserved.
 //
 
 #import "FlickrController.h"
@@ -180,8 +180,7 @@
     FlickrCell *cell = (FlickrCell *)[tableView dequeueReusableCellWithIdentifier:identifier];
     if (cell == nil) 
     {
-        CGRect rect = CGRectMake(0.0, 0.0, 320.0, 75.0);
-        cell = [[[FlickrCell alloc] initWithFrame:rect reuseIdentifier:identifier] autorelease];
+        cell = [[[FlickrCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier] autorelease];
         cell.delegate = self;
     }
     cell.item = item;

@@ -3,7 +3,7 @@
 //  AsyncTable
 //
 //  Created by Adrian on 3/8/09.
-//  Copyright 2009 __MyCompanyName__. All rights reserved.
+//  Copyright 2009 akosma software. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
@@ -33,7 +33,7 @@
 @property (nonatomic, copy) NSString *imageURL;
 @property (nonatomic, copy) NSString *thumbnailURL;
 @property (nonatomic, retain) UIImage *thumbnail;
-@property (nonatomic, assign) NSObject<FlickrItemDelegate> *delegate;
+@property (nonatomic, assign) id<FlickrItemDelegate> delegate;
 
 - (BOOL)hasLoadedThumbnail;
 
